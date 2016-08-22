@@ -22,15 +22,25 @@ public class OnboardingWithCenterAnimationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
+        // fixme: 8/22/16 make this screen full screen
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding_center);
     }
 
+    /**
+     * fixme
+     * If you want to play the animation immediately, without requiring interaction, then you might want to call it from the onWindowFocusChanged() method in your Activity,
+     * which will get called when Android brings your window into focus.
+     *
+     * @see <a href="http://stackoverflow.com/questions/7289827/how-to-start-animation-immediately-after-oncreate"></a>
+     * @param hasFocus
+     *
+     */
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-
+        // todo do not forget to write the if/else case to check the focus
         if (!hasFocus || animationStarted) {
             return;
         }
@@ -44,6 +54,7 @@ public class OnboardingWithCenterAnimationActivity extends AppCompatActivity {
         ImageView logoImageView = (ImageView) findViewById(R.id.img_logo);
         ViewGroup container = (ViewGroup) findViewById(R.id.container);
 
+        // TODO: 8/22/16 move up
         ViewCompat.animate(logoImageView)
             .translationY(-250)
             .setStartDelay(STARTUP_DELAY)
@@ -54,12 +65,14 @@ public class OnboardingWithCenterAnimationActivity extends AppCompatActivity {
             View v = container.getChildAt(i);
             ViewPropertyAnimatorCompat viewAnimator;
 
+            // TODO: 8/22/16 show the button
             if (!(v instanceof Button)) {
                 viewAnimator = ViewCompat.animate(v)
                         .translationY(50).alpha(1)
                         .setStartDelay((ITEM_DELAY * i) + 500)
                         .setDuration(1000);
             } else {
+                // // TODO: 8/22/16 enlarge the view
                 viewAnimator = ViewCompat.animate(v)
                         .scaleY(1).scaleX(1)
                         .setStartDelay((ITEM_DELAY * i) + 500)
