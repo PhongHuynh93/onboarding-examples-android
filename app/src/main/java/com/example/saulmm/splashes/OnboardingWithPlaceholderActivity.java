@@ -34,7 +34,7 @@ public class OnboardingWithPlaceholderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Fake a long startup time
+        // todo 7 - Fake a long startup time, wait 500ms, after that call onFakeCreate
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -48,6 +48,7 @@ public class OnboardingWithPlaceholderActivity extends AppCompatActivity {
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_onboarding_placeholder);
 
+//      todo 8 - show a title
         TextView titleTextView = (TextView) findViewById(R.id.text_title);
         ViewCompat.animate(titleTextView).alpha(1).start();
 
@@ -61,6 +62,11 @@ public class OnboardingWithPlaceholderActivity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        /**
+         * todo 9 - lấy height và width của toolbar, nhét trong hàm này do nếu đo height của toolbar ma nhét trong onResume thì cũng ko đó được, phải nhét trong hàm này
+         * get height of a toolbar in layout
+         */
         mToolbar.getViewTreeObserver().addOnPreDrawListener(
             new ViewTreeObserver.OnPreDrawListener() {
                 @Override
@@ -80,13 +86,17 @@ public class OnboardingWithPlaceholderActivity extends AppCompatActivity {
 
     private void collapseToolbar() {
         int toolBarHeight;
+        // // TODO: 8/22/16 10 - height chuản của toolbar
         TypedValue tv = new TypedValue();
         getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true);
         toolBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
+        // todo 11 - Constructs and returns a ValueAnimator that animates between int values(height mình tự cho và height chuẩn của layout )
         ValueAnimator valueHeightAnimator = ValueAnimator.ofInt(mContentViewHeight, toolBarHeight);
         valueHeightAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
+                // todo 12 - Adds a listener to the set of listeners that are sent update events through the life of an animation.
+                // toolbar sẽ tăng height từ từ
                 ViewGroup.LayoutParams lp = mToolbar.getLayoutParams();
                 lp.height = (Integer) animation.getAnimatedValue();
                 mToolbar.setLayoutParams(lp);
