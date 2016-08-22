@@ -23,6 +23,11 @@ public class OnboardingWithCenterAnimationActivity extends AppCompatActivity {
      * make the icon at the center first
      *
      * but when onCreate call, make it dissapear and replace with icon moved
+     *
+     * lúc đầu chưa gọi onCreate, ta load layout mặc định và sẽ tồn tại bao lâu tùy thuộc vào thời gian load,
+     * lúc load xong rồi thì ta mới xóa layout lúc đầu,
+     *
+     * tip ở đây rằng: 2 layout sau và đầu cùng 1 màu và vi trí icon giống nhau(nhớ đặt icon trong COordinatorlayout để nó ko chệnh lệch)
      * @param savedInstanceState
      */
     @Override

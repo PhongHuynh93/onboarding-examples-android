@@ -8,6 +8,7 @@
     android:orientation="vertical"
     >
 
+    <!--content ở giữa và ko có toolbar nên ko có chệnh lệch-->
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
