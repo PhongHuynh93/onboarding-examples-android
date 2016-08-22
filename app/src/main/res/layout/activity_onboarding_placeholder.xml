@@ -15,6 +15,7 @@
         tools:context=".OnboardingWithPlaceholderActivity"
         >
 
+        <!--todo 4 - the layout height is taller than normal -->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -24,6 +25,7 @@
             app:theme="@style/ThemeOverlay.AppCompat.Light"
             >
 
+            <!--todo 5 - the title in the toolbar is faded, so after the anim it can appear-->
             <TextView
                 android:id="@+id/text_title"
                 android:layout_width="match_parent"
