@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:opacity="opaque"
-    >
+    android:opacity="opaque">
+
+    <!--todo 3a - make it color the same of the background of the first activity-->
     <item>
         <shape>
             <solid android:color="@color/grey"/>
         </shape>
     </item>
 
+    <!--todo 3b - the place holder with color is the same as the toolbar in the first activity-->
     <item
         android:height="180dp"
         android:gravity="top">

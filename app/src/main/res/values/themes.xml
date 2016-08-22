@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--todo 1 - theme for application, not specify the windowBackground-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -8,6 +9,7 @@
         <item name="android:windowBackground">@null</item>
     </style>
 
+    <!--todo 2 - theme for first activity, add the toolbar placeholder-->
     <style name="AppTheme.Placeholder">
         <item name="android:windowBackground">@drawable/ll_toolbar_placeholder</item>
     </style>
