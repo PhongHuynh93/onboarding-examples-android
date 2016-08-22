@@ -96,23 +96,26 @@ public class OnboardingWithPlaceholderActivity extends AppCompatActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 // todo 12 - Adds a listener to the set of listeners that are sent update events through the life of an animation.
-                // toolbar sẽ tăng height từ từ
+                // toolbar sẽ giảm height từ từ
                 ViewGroup.LayoutParams lp = mToolbar.getLayoutParams();
                 lp.height = (Integer) animation.getAnimatedValue();
                 mToolbar.setLayoutParams(lp);
             }
         });
 
+        // todo, start the animation
         valueHeightAnimator.start();
+
+        // todo, when anim end, add a list of data to lists.
         valueHeightAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
 
-                // Fire item animator
+                // todo Fire item animator, add a list of data to lists.
                 mAdapter.addAll(ModelItem.getFakeItems());
 
-                // Animate fab
+                // todo Animate fab, show it
                 ViewCompat.animate(mFab).setStartDelay(600)
                     .setDuration(400).scaleY(1).scaleX(1).start();
 
