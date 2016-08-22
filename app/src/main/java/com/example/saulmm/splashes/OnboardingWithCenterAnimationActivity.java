@@ -19,6 +19,12 @@ public class OnboardingWithCenterAnimationActivity extends AppCompatActivity {
 
     private boolean animationStarted = false;
 
+    /**
+     * make the icon at the center first
+     *
+     * but when onCreate call, make it dissapear and replace with icon moved
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
