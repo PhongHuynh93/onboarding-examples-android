@@ -12,11 +12,6 @@
         <activity
             android:name=".OnboardingWithPlaceholderActivity"
             android:theme="@style/AppTheme.Placeholder">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
 
         <activity
@@ -26,7 +21,13 @@
 
         <activity
             android:name=".OnBoardingWithSimpleBackground"
-            android:theme="@style/AppTheme.Simple"/>
+            android:theme="@style/AppTheme.Simple">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
