@@ -4,6 +4,7 @@
     android:opacity="opaque">
 
     <item android:drawable="@color/grey"/>
+    <!--make the icon center of screen-->
     <item>
         <bitmap
             android:gravity="center"
